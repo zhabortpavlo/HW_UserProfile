@@ -6,33 +6,48 @@ let userAge;
 let userEnteredCity;
 let userNextChamp;
 
-if (userBirthYear === '') {
-    userAge = "Ваш вік " +  (currentYear - userBirthYear) + " років";
+if (userBirthYear == "") {
+    userAge = "Шкода, що Ви не захотіли ввести свій вік";
 } else {
-    userAge = 'Шкода, що Ви не захотіли ввести свій вік'
-
+    userAge = "Ваш вік " +  (currentYear - userBirthYear) + " років";
 }
 
-if (userCity === 'Київ') {
-userEnteredCity = '\nТи живеш у столиці України, ' + userCity;
-} else if (userCity === 'Вашингтон') {
-    userEnteredCity = '\nТи живеш у столиці Сполучених Штатів Америки,круто!)'
-} else if (userCity === 'Лондон') {
-    userEnteredCity = '\nТи живеш у столиці Великобританії, ' + userCity;
-} else if (userCity === '') {
-    userEnteredCity = "\nВи не ввели місто,спробуйте ще раз!"
-} else (
-    userEnteredCity = '\nТи живеш у місті ' + userCity
-)
 
-if (userFavSport === 'Бокс') {
-    userNextChamp = '\nКруто,хочеш стати як Мухамед Алі?'
-} else if (userFavSport === "Баскетбол") {
-    userNextChamp = "\nТак тримати,будеш як Майкл Джордан!"
-} else if (userFavSport === "Футбол") {
-    userNextChamp = "\nВау,ти обов'язково станеш наступним Крістану Роналдо!"
-} else if (userFavSport === '') {
-    userNextChamp = '\nНажаль ти не ввів сюди свій улюблений вид спорту :('
+switch (userCity) {
+    case 'Київ':
+        userEnteredCity = '\nТи живеш у столиці України, ' + userCity;
+        break;
+    case 'Вашингтон':
+        userEnteredCity = '\nТи живеш у столиці Сполучених Штатів Америки, круто!)';
+        break;
+    case 'Лондон':
+        userEnteredCity = `\nТи живеш у столиці Великобританії, ${userCity}`;
+        break;
+    case '':
+        userEnteredCity = "\nВи не ввели місто, спробуйте ще раз!";
+        break;
+    default:
+        userEnteredCity = `\nТи живеш у місті ${userCity}`;
 }
+
+
+switch (userFavSport) {
+    case 'Бокс':
+        userNextChamp = '\nКруто, хочеш стати як Мухамед Алі?';
+        break;
+    case 'Баскетбол':
+        userNextChamp = "\nТак тримати, будеш як Майкл Джордан!";
+        break;
+    case 'Футбол':
+        userNextChamp = "\nВау, ти обов'язково станеш наступним Крістіану Роналдо!";
+        break;
+    case '':
+        userNextChamp = '\nНажаль, ти не ввів свій улюблений вид спорту :(';
+        break;
+    default:
+        userNextChamp = "\nПоки що доступні варіанти: Бокс, баскетбол і футбол.Але це поки,навчання продовжується:)";
+        break;
+}
+
 
 alert(userAge + userEnteredCity + userNextChamp);
